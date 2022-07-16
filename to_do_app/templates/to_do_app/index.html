@@ -1,5 +1,14 @@
 {% extends 'to_do_app/layout.html' %}
 
 {% block content %}
-<h1>Hello, welcome to my home page.</h1>
+<div class="py-1"></div>
+<h1>Here is the list of things for you to do, you busy human being.</h1>
+<div class="py-3"></div>
+<ul>
+    {% for task in things_to_do %}
+    <li><a href="/todos/{{task.id}}">{{ task.title }}</a></li>
+    {% endfor %}
+</ul>
+<div class="py-4"></div>
+<h3><a href="/todos/new">Create a task</a></h3>
 {% endblock %}

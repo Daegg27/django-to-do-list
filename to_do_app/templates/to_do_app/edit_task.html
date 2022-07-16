@@ -1,0 +1,22 @@
+{% extends 'to_do_app/layout.html' %}
+
+{% block head-content %}
+{% load static %}
+<script src="{% static 'js/edit.js' %}" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+{% endblock %}
+
+
+{% block content %}
+<div class="py-1"></div>
+<h1>What would you like to change about: <strong>{{ task.title }}</strong></h1>
+<div class="py-2"></div>
+<form onsubmit="changeTask(event, '{{task.id}}')">
+    <label for="new_title">Put the new title</label><br>
+    <input name="title" id="new_title" type="text" value="{{task.title}}"><br>
+    <label for="new_desc">Put the new description</label><br>
+    <input name="description" id='new_desc' type="text" value="{{task.description}}"><br>
+    <div class="py-1"></div>
+    <button type="submit">CHANGE</button>
+</form>
+{% endblock %}

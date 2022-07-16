@@ -1,0 +1,10 @@
+{% extends 'to_do_app/layout.html' %}
+
+{% block content %}
+<h1>{{ task.title }}</h1>
+<ul>
+    <li>{{ task.description }} </li>
+</ul>
+<div class="py-3"></div>
+<h3><a href="/todos/{{task.id}}/edit">Edit this task!</a></h3>
+{% endblock %}
