@@ -1,14 +1,21 @@
 {% extends 'to_do_app/layout.html' %}
 
+
+{% block head-content %}
+{% load static %}
+    <script src="{% static 'js/app.js' %}" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+{% endblock %}
+
 {% block content %}
 <div class="py-2"></div>
 <h1>Sounds like you got a new task to do</h1>
 <div class="py-3"></div>
-<form >
+<form onsubmit="newUser(event)">
     <label for="to_do_name">What do you need to do?</label><br>
-    <input type="text" id="to_do_name"><br>
+    <input name="title" type="text" id="to_do_name"><br>
     <label for="to_do_desc">Describe the task</label><br>
-    <input type="text" id="to_do_desc"><br>
+    <input name="description" type="text" id="to_do_desc"><br>
     <div class="py-1"></div>
     <button type="submit">SUBMIT</button>
 </form>
