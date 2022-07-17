@@ -14,8 +14,8 @@ function newUser(event){
     }
 
     axios.post('/todos/', newTask)
-    // .then((response => {
-    //     console.log(response)
-    // })
-    // )
+    .then((response => {
+        window.location.href = '/todos'
+    })
+    )
 }

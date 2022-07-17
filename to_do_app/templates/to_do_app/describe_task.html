@@ -1,5 +1,12 @@
 {% extends 'to_do_app/layout.html' %}
 
+{% block head-content %}
+{% load static %}
+    <script src="{% static 'js/edit.js' %}" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+{% endblock %}
+
+
 {% block content %}
 <h1>{{ task.title }}</h1>
 <ul>
@@ -7,4 +14,9 @@
 </ul>
 <div class="py-3"></div>
 <h3><a href="/todos/{{task.id}}/edit">Edit this task!</a></h3>
+<div class="py-2"></div>
+<form onsubmit="deleteTask(event, '{{task.id}}')">
+    <input type="hidden" value="{{task.id}}">
+    <button type="submit">DELETE</button>
+</form>
 {% endblock %}

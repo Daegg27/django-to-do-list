@@ -6,5 +6,6 @@ urlpatterns = [
     path('update', views.update_task),
     path('<int:id>/', views.describe_task),
     path('<int:id>/edit', views.edit_task),
+    path('<int:id>/delete', views.delete_task),
     path('new', views.signup_form)
 ]

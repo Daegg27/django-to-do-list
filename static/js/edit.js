@@ -24,6 +24,15 @@ function changeTask(event, id) {
         window.location.href = '/todos' // Work around for not being able to get the HttpResponseRedirect to work
     })
     )
+}
 
+function deleteTask(event, id){
+    event.preventDefault()
 
+    axios.post(`/todos/${id}/delete`, {
+        'id':id
+    }).then((response => {
+        window.location.href = '/todos'
+    })
+    )
 }

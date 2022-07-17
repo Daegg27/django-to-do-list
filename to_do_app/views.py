@@ -75,3 +75,15 @@ def update_task(request):
 
     return JsonResponse({'title': title})
     # return HttpResponseRedirect('/todos') Cannot get this to work
+
+@csrf_exempt
+def delete_task(request, id):
+
+    if request.method == 'POST': 
+        body = json.loads(request.body)
+        search_id = body['id']
+        
+        Todo.objects.filter(id = search_id).delete()
+        return JsonResponse({'hello':'goodbye'})
+    else:
+        return HttpResponseRedirect('/todos')
